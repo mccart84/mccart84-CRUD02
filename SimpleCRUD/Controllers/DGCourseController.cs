@@ -14,20 +14,21 @@ namespace SimpleCRUD.Controllers
         public ActionResult Index()
         {
             return View();
+
         }
 
         public ActionResult ShowTable()
         {
             List<DGCourse> dgCourse = (List<DGCourse>)Session["DGCourse"];
 
-            Session["dgCourse"] = dgCourse;
+            Session["DGCourse"] = dgCourse;
 
             return View(dgCourse);
         }
 
         public ActionResult ShowDetail(int id)
         {
-            List<DGCourse> dgCourses = (List<DGCourse>)Session["dgCourse"];
+            List<DGCourse> dgCourses = (List<DGCourse>)Session["DGCourse"];
 
             int index = dgCourses.FindIndex(a => a.ID == id);
 
@@ -39,7 +40,7 @@ namespace SimpleCRUD.Controllers
 
         public ActionResult DeleteDGCourse(int id)
         {
-            List<DGCourse> dgCourses = (List<DGCourse>)Session["dgCourse"];
+            List<DGCourse> dgCourses = (List<DGCourse>)Session["DGCourse"];
             DGCourse dgCourseToDelete = null;
 
             foreach (DGCourse dgCourse in dgCourses)
@@ -58,13 +59,13 @@ namespace SimpleCRUD.Controllers
         {
             if (form["operation"] == "Delete")
             {
-                List<DGCourse> dgCourses = (List<DGCourse>)Session["dgCourse"];
+                List<DGCourse> dgCourses = (List<DGCourse>)Session["DGCourse"];
 
                 int index = dgCourses.FindIndex(a => a.ID == Convert.ToInt32(form["ID"]));
 
                 dgCourses.RemoveAt(index);
 
-                Session["dgCourse"] = dgCourses;
+                Session["DGCourse"] = dgCourses;
 
             }
 
@@ -81,7 +82,7 @@ namespace SimpleCRUD.Controllers
         {
             if (form["operation"] == "Add")
             {
-                List<DGCourse> dgCourses = (List<DGCourse>)Session["dgCourses"];
+                List<DGCourse> dgCourses = (List<DGCourse>)Session["DGCourse"];
 
                 DGCourse newDGCourse = new DGCourse()
                 {
@@ -96,7 +97,7 @@ namespace SimpleCRUD.Controllers
 
                 dgCourses.Add(newDGCourse);
 
-                Session["dgCourses"] = dgCourses;
+                Session["DGCourse"] = dgCourses;
 
             }
 
@@ -105,7 +106,7 @@ namespace SimpleCRUD.Controllers
 
         public ActionResult UpdateDGCourse(int id)
         {
-            List<DGCourse> DGCourse = (List<DGCourse>)Session["dgCourse"];
+            List<DGCourse> DGCourse = (List<DGCourse>)Session["DGCourse"];
             DGCourse dgCourseToUpdate = null;
 
             foreach (DGCourse dgCourse in DGCourse)
@@ -124,7 +125,7 @@ namespace SimpleCRUD.Controllers
         {
             if (form["operation"] == "Edit")
             {
-                List<DGCourse> dgCourse = (List<DGCourse>)Session["dgCourse"];
+                List<DGCourse> dgCourse = (List<DGCourse>)Session["DGCourse"];
 
                 int index = dgCourse.FindIndex(a => a.ID == Convert.ToInt32(form["ID"]));
 
@@ -135,7 +136,7 @@ namespace SimpleCRUD.Controllers
                 dgCourse[index].Zip = form["Zip"];
                 dgCourse[index].Status = form["Status"];
 
-                Session["dgCourse"] = dgCourse;
+                Session["DGCourse"] = dgCourse;
 
             }
 

@@ -6,7 +6,7 @@
 
 <h2>List of Disc Golf courses</h2>
 <br />
-<a href="/DGCourses/CreateDGCourse">Add a New Disc Golf Course</a>
+@*<a href="/DGCourses/CreateDGCourse">Add a New Disc Golf Course</a>*@
 <table class="table">
     <tr>
         <th>
@@ -57,14 +57,14 @@
             <td>
                 @item.Status
             </td>
-            <td>
+            @*<td>*@
                 @*
                     Demonstration of using finding and using the item index of the list
                 *@
-                <a href="/DGCourse/ShowDetail?id=@item.ID" )">View</a>&nbsp;&nbsp;
+                @*<a href="/DGCourse/ShowDetail?id=@item.ID" )">View</a>&nbsp;&nbsp;
                 <a href="/DGCourse/UpdateBrewery?id=@item.ID">Edit</a>&nbsp;&nbsp;
-                <a href="/DGCourse/DeleteBrewery?id=@item.ID">Delete</a>&nbsp;&nbsp;
-            </td>
+                <a href="/DGCourse/DeleteBrewery?id=@item.ID">Delete</a>&nbsp;&nbsp;*@
+            @*</td>*@
         </tr>
     }
 </table>

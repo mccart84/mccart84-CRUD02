@@ -40,7 +40,7 @@ namespace SimpleCRUD.DAL
             //
             // Store the list of breweries in a session variable
             //
-            HttpContext.Current.Session["dgCourse"] = dgCourse;
+            HttpContext.Current.Session["DGCourse"] = dgCourse;
 
         }
     }
